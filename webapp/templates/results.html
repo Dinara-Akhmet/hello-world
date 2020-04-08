@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>ИС судебных дел</h2>
+<form method='GET' action='/'>
+<table>
+    <tr>
+        {% for field_title in field_titles %}
+            <th>{{field_title}}</th>
+        {% endfor %}
+    </tr>
+    {% for case in case_list %}
+        <tr>
+        <td>{{case.id}}</td><td>{{case.number_case}}</td><td>{{case.applicant}}</td><td>{{case.type_applicant}}</td><td>{{case.appraiser}}</td><td>{{case.judge}}</td><td>{{case.status_case}}</td>
+        </tr>
+    {% endfor %}
+</table>
+<p><input value='Назад' type='SUBMIT'></p>
+</form>
+
+{% endblock %}

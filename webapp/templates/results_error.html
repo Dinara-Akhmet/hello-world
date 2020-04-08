@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<p>Судебное дело</p>
+<form method='GET' action='/'>
+<table>
+<tr><td>Дело с номер {{ the_number }} существует, поробуйте снова.</td></tr>
+</table>
+<p><input value='Назад' type='SUBMIT'></p>
+</form>
+
+{% endblock %}
