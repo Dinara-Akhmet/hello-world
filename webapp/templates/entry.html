@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    
+        {% for message in messages %}
+            {{ message }}<br>
+        {% endfor %}
+    
+    {% endif %}
+{% endwith %}
+
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/write_db/'>
+<table>
+<p>ИС судебных дел</p>
+<tr><td>Номер дела</td><td><input name='number_case' type='TEXT' width='60'></td></tr>
+<tr><td>Заявитель</td><td><input name='applicant' type='TEXT' width='60'></td></tr>
+<tr><td>Тип заявителя (введите число от 1 до 5)</td><td><input name='type_applicant' type="range" min="1" max="5" width='60'></td></tr>
+<tr><td>Оценщик</td><td><input name='appraiser' type='TEXT' width='60'></td></tr>
+<tr><td>Судья</td><td><input name='judge' type='TEXT' width='60'></td></tr>
+<tr><td>Статус дела (Введите число от 1 до 5)</td><td><input name='status_case' type="range" min="1" max="5" width='60'></td></tr>
+</table>
+<p><input value='Отправить' type='SUBMIT'></p>
+</form>
+{% endblock %}

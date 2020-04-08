@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %} 
+        {% for message in messages %}
+            {{ message }}<br>
+        {% endfor %}   
+    {% endif %}
+{% endwith %}
+
+<h2>{{ page_title }}</h2>
+<form action='{{ url_for('user.process_login') }}' method="POST">
+    {{ the_form.hidden_tag() }}
+    <p>
+        {{ the_form.username.label }}<br>
+        {{ the_form.username() }}
+    </p>
+    <p>
+        {{ the_form.password.label }}<br>
+        {{ the_form.password() }}
+    </p>
+    <p>
+        {{ the_form.submit() }}
+    </p>
+    <p>
+        {{ the_form.remember_me.label }}
+        {{ the_form.remember_me() }}
+    </p>
+</form>
+
+{% endblock %}
